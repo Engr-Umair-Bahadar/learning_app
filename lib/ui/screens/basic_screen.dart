@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:task/core/constant/colors.dart';
 import 'package:task/core/constant/text_style.dart';
+// ignore: unused_import
 import 'package:task/ui/screens/container.dart';
 
 class BasicScreen extends StatelessWidget {
@@ -27,7 +28,7 @@ class BasicScreen extends StatelessWidget {
       ),
       drawer: Drawer(backgroundColor: yellowColor),
 
-      body: GridView.count(
+      /* body: GridView.count(
         crossAxisSpacing: 13,
         mainAxisSpacing: 13,
         crossAxisCount: 2,
@@ -60,6 +61,30 @@ class BasicScreen extends StatelessWidget {
           MyContainer(text: "Arbor\n \tknot"),
           MyContainer(text: "Double uni\n \tknot"),
         ],
+      ),*/
+      body: SingleChildScrollView(
+        physics: AlwaysScrollableScrollPhysics(),
+        child: Column(
+          children: [
+            SizedBox(
+              height: 150,
+
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                shrinkWrap: true,
+                itemCount: 20,
+
+                itemBuilder: (context, index) {
+                  return MyContainer(
+                    text: 'continue',
+                    imageUrl:
+                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTotQa0-3pVv1_1-0q2_Ca7MDTUKDGYLIx-qA9E_G151NQQ5Pdd5DGZbuc&s",
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
